@@ -3,7 +3,7 @@
 
 // Array para almacenar nombres
 let nombres = []
-let valor = document.getElementById("nombre").value
+let valor = document.getElementById("amigo").value
 
 
 // funcion que obtiene amigos y lo agrega a la array
