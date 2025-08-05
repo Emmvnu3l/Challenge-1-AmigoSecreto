@@ -7,7 +7,7 @@ let valor = document.getElementById("nombre").value
 
 
 // funcion que obtiene amigos y lo agrega a la array
-function agregarAmigos() {
+function agregarAmigo() {
     if (valor == ''){
         alert('ingresa un valor valido')
     }else{
