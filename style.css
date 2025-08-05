@@ -129,6 +129,7 @@ button {
 .button-add2 {
     background-color: var(--color-tertiary);
     color: var(--color-text);
+    border-radius: 25px 25px 25px 25px;
 }
 
 .button-add2:hover {
