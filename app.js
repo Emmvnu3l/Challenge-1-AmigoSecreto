@@ -3,18 +3,59 @@
 
 // Array para almacenar nombres
 let nombres = []
-let valor = document.getElementById("amigo")
+let listaAmigo = obtenerElemento("listaAmigos")
+let listaGanador = obtenerElemento("resultado")
 
-
-// funcion que obtiene amigos y lo agrega a la array
-function agregarAmigo() {
-    if (valor.value == ''){
-        alert('ingresa un valor valido')
-    }else{
-    return nombres.push(valor)}
+function obtenerElemento(valor){
+    return document.getElementById(valor);
+}
+function obtenerValor(valor){
+    return document.getElementById(valor).value;
 }
 
-    for (let i = 0; i < nombres.length; i ++){
+function reiniciar(){
+    nombres = [];
+    listaAmigo.innerHTML = "";
+    listaGanador.innerHTML = "";
+    obtenerElemento("amigo").value = "";
+}
 
+function agregarAmigo() {
+
+    let amigo = obtenerValor("amigo");
+    if (amigo == ''){
+        alert('ingresa un valor valido')    
+    }else{ 
+    nombres.push(amigo);
+    obtenerElemento("amigo").value =  '' 
+    actualizarAmigos();}
+}
+
+function actualizarAmigos(){
+    listaAmigo.innerHTML="";
+    for (let i = 0; i < nombres.length; i ++){
+        let item = document.createElement("li");
+        // Asignar el nombre del amigo al <li>
+        item.textContent = nombres[i];
+        listaAmigo.appendChild(item);
     }
+    }
+
+function sortearAmigo() {
+    if (nombres.length === 0) {
+        alert("La lista está vacía.");
+        return;
+    }
+
+    let indice = Math.floor(Math.random() * nombres.length);
+    let nombreElegido = nombres[indice];
+    listaGanador.innerHTML = "";
+
+    let item = document.createElement("li");
+    item.textContent = nombreElegido;
+    listaGanador.appendChild(item);
+}
+
+
+
 
